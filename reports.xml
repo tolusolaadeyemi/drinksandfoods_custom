@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <odoo>
+ <data> 
+<template id="sales_report"  inherit_id="sale.report_saleorder_document">
+<xpathexpr="//div[hasclass('class_name')]" position="after/before/replace">
+   //here we can add the changes 
+</xpath>
+</template>
+ </data>
+ </odoo>
