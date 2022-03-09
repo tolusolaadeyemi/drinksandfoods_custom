@@ -6,8 +6,8 @@
                 id="report_NewReceipt"
                 model="sale.order"
                 string="New Receipt A5"
-                name="drinks_custom.report_newreceipt"
-                file="drinks_custom.report_newreceipt"
+                name="drinksandfoods_custom.report_newreceipt"
+                file="drinksandfoods_custom.report_newreceipt"
                 report_type="qweb-pdf"/>
 
 <!--        <template id="report_ModelName_view">-->
