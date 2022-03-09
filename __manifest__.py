@@ -28,6 +28,7 @@
         'views/views.xml',
         'views/templates.xml',
         'views/report.xml',
+        'report/report2.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
