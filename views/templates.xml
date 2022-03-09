@@ -220,7 +220,7 @@
         <template id="report_newreceipt">
     <t t-call="web.html_container">
         <t t-foreach="docs" t-as="doc">
-            <t t-call="drinks_custom.report_newreceipt_doc" t-lang="doc.partner_id.lang"/>
+            <t t-call="drinksandfoods_custom.report_newreceipt_doc" t-lang="doc.partner_id.lang"/>
         </t>
     </t>
 </template>
