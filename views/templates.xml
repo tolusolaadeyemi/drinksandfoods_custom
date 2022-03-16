@@ -224,6 +224,29 @@
         </t>
     </t>
 </template>
+        <template id="report_paymentslip_doc">
+            <t t-call="report.html_container">
+                <t t-call="report.internal_layout">
+                <!-- <t t-call="report.external_layout"> -->
+                    <div class="page">
+                        <h2>Payment Slip</h2>
+                        <!--
+                        Build your report here!
+                        Do it in awesome way ;)
+                        -->
+                    </div>
+                </t>
+            </t>
+        </template>
+
+
+        <template id="report_paymentslip">
+    <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="doc">
+            <t t-call="drinksandfoods_custom.report_paymentslip_doc" t-lang="doc.partner_id.lang"/>
+        </t>
+    </t>
+</template>
 <!--
         <template id="listing">
           <ul>
