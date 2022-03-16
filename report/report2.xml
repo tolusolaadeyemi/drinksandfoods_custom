@@ -13,8 +13,8 @@
                 id="report_Paymentslip"
                 model="account.payment"
                 string="Payment Slip"
-                name="drinksandfoods_custom.report_paymentslip"
-                file="drinksandfoods_custom.report_paymentslip"
+                name="drinks_custom.report_paymentslip"
+                file="drinks_custom.report_paymentslip"
                 report_type="qweb-pdf"/>
 
 <!--        <template id="report_ModelName_view">-->
