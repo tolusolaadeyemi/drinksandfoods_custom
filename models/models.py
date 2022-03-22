@@ -7,6 +7,19 @@ class SaleOrderLines(models.Model):
     barcode = fields.Char(string='Product Barcode', help="Here you can provide the barcode for the product",
                           related="product_id.barcode")
 
+
+class Partner(models.Model):
+    _inherit = 'res.partner'
+
+    phone = fields.Char(
+        string='Phone',
+        required=True)
+    city = fields.Char(string='City', required=True)
+    facebook_handle = fields.Char(string='FacebookHandle')
+    instagram_handle = fields.Char(string='InstagramHandle')
+    credit_limit = fields.Float(
+        string='Credit limit',
+        required=False)
     # @api.onchange('barcode_scan')
     # def _onchange_barcode_scan(self):
     #     product_rec = self.env['product.product']
