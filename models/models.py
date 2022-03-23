@@ -15,11 +15,11 @@ class Partner(models.Model):
         string='Phone',
         required=True)
     city = fields.Char(string='City', required=True)
-    facebook_handle = fields.Char(string='FacebookHandle')
-    instagram_handle = fields.Char(string='InstagramHandle')
-    credit_limit = fields.Float(
-        string='Credit limit',
-        required=False)
+    # facebook_handle = fields.Char(string='FacebookHandle')
+    # instagram_handle = fields.Char(string='InstagramHandle')
+    # credit_limit = fields.Float(
+    #     string='Credit limit',
+    #     required=False)
     # @api.onchange('barcode_scan')
     # def _onchange_barcode_scan(self):
     #     product_rec = self.env['product.product']
@@ -27,6 +27,50 @@ class Partner(models.Model):
     #         product = product_rec.search([('barcode', '=', self.barcode_scan)])
     #         self.product_id = product.id
 
+    # @api.multi
+    # def name_get(self):
+    #     result = []
+    #     for record in self:
+    #         record_name = record.name + ' - ' + record.member_no
+    #         result.append((record.id, record_name))
+    #     return result
+
+class PurchaseOrderLine(models.Model):
+    _inherit = 'purchase.order.line'
+
+    current_sale_price = fields.Float(string='Current Price', related='product_id.list_price')
+    new_sale_price = fields.Float(string='New Price')
+
+    # @api.model
+    # def create(self, vals):
+    #     result = super(PurchaseOrderLine, self).create(vals)
+    #     if 'new_sale_price' in vals:
+    #         product = self.product_id.id
+    #         new_p = self.env('product.template').search([('product_id'.id, '=', record.id)], limit=1)
+    #         if new_p:
+    #             new_p['list_price'] = self.new_sale_price
+    #
+    #         # new_price = {
+    #         #     "list_price" : self.new_sale_price
+    #         # }
+    #
+
+class PurchaseOrder(models.Model):
+    _inherit = 'purchase.order'
+
+    def update_price(self):
+        for line in self.order_line:
+            if line.new_sale_price:
+                new_p = self.env('product.template').search([('product_id'.id, '=', record.id)], limit=1)
+                if new_p:
+                    new_p['list_price'] = line.new_sale_price
+
+
+
+
+
+
+        # return result
 
 # -*- coding: utf-8 -*-
 
