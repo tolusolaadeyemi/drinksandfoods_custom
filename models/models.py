@@ -59,11 +59,20 @@ class PurchaseOrder(models.Model):
     _inherit = 'purchase.order'
 
     def update_price(self):
+        # products = self.env('product.template').browse(self.env.context.get('order_line.product_id'))
         for line in self.order_line:
             if line.new_sale_price:
-                new_p = self.env('product.template').search([('product_id'.id, '=', record.id)], limit=1)
-                if new_p:
-                    new_p['list_price'] = line.new_sale_price
+                line.product_id.list_price = line.new_sale_price
+                # new_price = {
+                #     'list_price': line.new_sale_price,
+                #     'id': line.product_id.id
+                # }
+                # product[0].write(new_price)
+
+
+                # if new_p:
+                #     new_p.write(new_price)
+                    # new_p['list_price'] = line.new_sale_price
 
 
 
