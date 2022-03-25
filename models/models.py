@@ -63,6 +63,22 @@ class PurchaseOrder(models.Model):
             if line.new_sale_price:
                 line.product_id.list_price = line.new_sale_price
 
+
+class ProductTemplate(models.Model):
+    _inherit = 'product.template'
+
+    description_purchase = fields.Text(
+        string="Description_purchase",
+        required=False, related='description_sale' )
+
+    def name_get(self):
+        result = []
+        for record in self:
+            result.append((record.id,'%s-%s' %( record.brand_id,record.name)))
+            return result
+
+
+
 # -*- coding: utf-8 -*-
 
 # from odoo import models, fields, api
