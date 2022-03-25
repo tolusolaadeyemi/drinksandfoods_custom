@@ -74,8 +74,9 @@ class ProductTemplate(models.Model):
     def name_get(self):
         result = []
         for record in self:
-            result.append((record.id,'%s-%s' %( record.brand_id,record.name)))
-            return result
+            rec_name = '[' + record.brand_id.name + ']' + record.name
+            result.append((record.id, rec_name))
+        return result
 
 
 
