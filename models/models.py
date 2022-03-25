@@ -71,14 +71,24 @@ class ProductTemplate(models.Model):
         string="Description_purchase",
         required=False, related='description_sale' )
 
+
     def name_get(self):
         result = []
-        for record in self:
-            rec_name = '[' + record.brand_id.name + ']' + record.name
-            result.append((record.id, rec_name))
+        for rec in self:
+            rec_name = rec.description_sale
+            result.append((rec.id, rec_name))
         return result
 
+class ProductProduct(models.Model):
+    _inherit = 'product.product'
 
+
+    def name_get(self):
+        result = []
+        for rec in self:
+            rec_name = str(rec.brand_id.name) + ' ' + rec.name
+            result.append((rec.id, rec_name))
+        return result
 
 # -*- coding: utf-8 -*-
 
