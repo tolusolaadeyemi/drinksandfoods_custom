@@ -27,8 +27,19 @@
                </xpath>
             </field>
         </record>
+      <record id="account_payment_view_inherit" model="ir.ui.view">
+            <field name="name">account.payment.inherit</field>
+            <field name="model">account.payment.register</field>
+            <field name="inherit_id" ref="account.view_account_payment_register_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='group2']/field[@name='payment_date']" position="after">
+                    <field name ="pos_fee"/>
+                    <field name ="amount_pluspos"/>
+                </xpath>
+            </field>
+        </record>
 
-
+account.view_account_payment_register_form
     <!-- explicit list view definition -->
 <!--
     <record model="ir.ui.view" id="drinks_custom.list">
