@@ -5,7 +5,7 @@
         <report
                 id="report_NewReceipt"
                 model="sale.order"
-                string="New Receipt A5"
+                string="New Receipt A6"
                 name="drinksandfoods_custom.report_newreceipt"
                 file="drinksandfoods_custom.report_newreceipt"
                 report_type="qweb-pdf"/>
