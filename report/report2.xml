@@ -3,6 +3,13 @@
     <data>
 
         <report
+                id="report_ThermalReceipt"
+                model="sale.order"
+                string="Thermal Receipt"
+                name="drinksandfoods_custom.report_thermalreceipt"
+                file="drinksandfoods_custom.report_thermalreceipt"
+                report_type="qweb-pdf"/>
+        <report
                 id="report_NewReceipt"
                 model="sale.order"
                 string="New Receipt A6"
